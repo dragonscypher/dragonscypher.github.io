@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shivam's Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt="Shivam Pal" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Shivam Pal">Shivam Pal</h1>
+
+          <p class="title">Data and Cloud Enthusiast</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:Shivam@example.com" class="contact-link">spal25@asu.edu</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+12133522795" class="contact-link">+1 (332) 733-8760</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1982-06-23">Dec 11, 1999</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Phoenix, Arizona, USA</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>About</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Resume</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Portfolio</button>
+          </li>
+   
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Contact</button>
+          </li>
+
+        </ul>s
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            I'm a motivated Information Technology graduate student based in Tempe, AZ. My academic journey at Arizona State University
+            has equipped me with a solid foundation in cloud computing, data analysis, and project management. With a GPA of 4.00, I
+            bring dedication and excellence to everything I do. My skills span a range of programming languages, cloud platforms, and
+            data tools, reflecting a diverse background that allows me to approach challenges with a holistic perspective.
+          </p>
+          
+          <p>
+            I've had hands-on experience as a Device Usability Researcher and Programmer Analyst, optimizing data pipelines, conducting
+            technical training, and enhancing team efficiency. My passion for turning data into actionable insights is evident in projects
+            like Data Pipeline Automation on AWS and developing a Hand Sign Interpreter using CNNs. With a blend of technical acumen and
+            a creative outlook, I am excited to contribute positively to the tech industry and continue my journey of learning and innovation.
+          </p>
+          
+        </section>
+
+
+        <!--
+          - service
+        -->
+        <section class="service">
+
+          <h3 class="h3 service-title">My Expertise</h3>
+        
+          <ul class="service-list">
+        
+            <li class="service-item">
+        
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Code icon" width="40">
+              </div>
+        
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Powerful Websites</h4>
+        
+                <p class="service-item-text">
+                  Creating the backbone of websites to make them efficient and dynamic.
+                </p>
+              </div>
+        
+            </li>
+        
+            <li class="service-item">
+        
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-cloud.svg" alt="Cloud icon" width="40">
+              </div>
+        
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Cloud Solutions</h4>
+        
+                <p class="service-item-text">
+                  Designing and implementing online tools that run securely and smoothly.
+                </p>
+              </div>
+        
+            </li>
+        
+            <li class="service-item">
+        
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-analytics.svg" alt="Data Analytics icon" width="40">
+              </div>
+        
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Data Analytics</h4>
+        
+                <p class="service-item-text">
+                  Analyzing data to uncover insights that drive smart decisions.
+                </p>
+              </div>
+        
+            </li>
+        
+            <li class="service-item">
+        
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-ai.svg" alt="Artificial Intelligence icon" width="40">
+              </div>
+        
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Intelligent Automation</h4>
+        
+                <p class="service-item-text">
+                  Building applications that automate tasks and make smart decisions using machine learning technology.
+                </p>
+              </div>
+        
+            </li>
+        
+          </ul>
+        
+        </section>
+        
+
+
+        
+
+
+        <!--
+          - next page modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="service">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+                     
+          </section>
+
+        </div>
+
+
+       
+      </article>
+
+
+
+
+
+      <!--
+        - #RESUME
+      -->
+
+      <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+            <ol class="timeline-list">
+          
+              <li class="timeline-item">
+          
+                <h4 class="h4 timeline-item-title">Arizona State University - Ira A. Fulton Schools of Engineering,   GPA 4.00</h4>
+          
+                <span>Master of Information Technology (Information Systems Management), May 2024</span>
+          
+                <p class="timeline-text">
+                  Relevant Coursework: Advanced Big Data, Data Visualization & Reporting for IT, Cloud Architecture,
+                  Information System Development, Advance DBMS, Machine & Deep Learning, Computer Architecture, and IoT. 
+                </p>
+          
+              </li>
+          
+              <li class="timeline-item">
+          
+                <h4 class="h4 timeline-item-title">SRM Institute of Science and Technology,   GPA 3.04</h4>
+          
+                <span>Bachelor of Electronics and Communication Engineering, Aug 2021</span>
+          
+                <p class="timeline-text">
+                  Relevant Coursework: Programming in C, Virtual Reality, VLSI Design, Advanced Calculus, Probability,
+                  Discrete Maths, Wireless Comm., Network Protocols, Cryptography and Network Security, Integrated Circuits.
+                </p>
+              </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+          
+            <ol class="timeline-list">
+
+              <li class="timeline-item">
+                  <h4 class="h4 timeline-item-title">Device Usability Researcher</h4>
+                  <span>Feb 2022 — Jul 2022</span>
+
+                  <p class="timeline-text">
+                      MCMIT College in collaboration with Adani Edu - Mission NIELT CG, India
+                      <br>
+                      • Delivered hands-on labs on networking, IoT, and cloud computing using technologies like Wireshark, Arduino, and GCP.
+                      <br>
+                      • Created 3D simulations using Blender to demonstrate abstract concepts which enhanced student engagement by 50%.
+                  </p>
+                  
+              </li>
+            
+              <li class="timeline-item">
+                <h4 class="h4 timeline-item-title">Programmer Analyst</h4>
+                <span>Jan 2021 — Dec 2021</span>
+
+                <p class="timeline-text">
+                  Cognizant. Chennai, TN, India
+                  <br>
+                  • Developed and optimized data pipelines using Kafka, Spark, and Hadoop that reduced trade processing latency by 40% for
+                  Credit Suisse’s trading platform.
+                  <br>
+                  • Containerized micro-services using Docker and Kubernetes, enhancing scalability and automated testing using Selenium
+                  and improved code quality.
+                  <br>
+                  • Onboarded new team members by conducting technical training sessions on Java, Spring Boot, Spark, and database
+                  technologies.
+                </p>
+
+              </li>
+
+            </ol>
+
+      </section>
+
+      <section class="skill">
+
+        <h3 class="h3 skills-title">My skills</h3>
+      
+        <ul class="skills-list content-card">
+      
+          <li class="skills-item">
+      
+            <div class="title-wrapper">
+              <h5 class="h5">Programming Languages</h5>
+              <data value="90">90%</data>
+            </div>
+      
+            <div class="skill-progress-bg">
+              <div class="skill-progress-fill" style="width: 90%;"></div>
+            </div>
+      
+          </li>
+      
+          <li class="skills-item">
+      
+            <div class="title-wrapper">
+              <h5 class="h5">Data and Cloud Tools</h5>
+              <data value="85">85%</data>
+            </div>
+      
+            <div class="skill-progress-bg">
+              <div class="skill-progress-fill" style="width: 85%;"></div>
+            </div>
+      
+          </li>
+      
+          <li class="skills-item">
+      
+            <div class="title-wrapper">
+              <h5 class="h5">Other Technologies</h5>
+              <data value="70">70%</data>
+            </div>
+      
+            <div class="skill-progress-bg">
+              <div class="skill-progress-fill" style="width: 70%;"></div>
+            </div>
+      
+          </li>
+      
+        </ul>
+      
+      </section>
+                    
+      </article>
+
+
+
+
+
+      <!--
+        - #PORTFOLIO
+      -->
+
+      <article class="portfolio" data-page="portfolio">
+
+        <header>
+          <h2 class="h2 article-title">Portfolio</h2>
+        </header>
+
+        <section class="projects">
+
+          <div class="filter-select-box">
+
+            <button class="filter-select" data-select>
+              <div class="select-icon">
+                <ion-icon name="chevron-down"></ion-icon>
+              </div>
+
+            </button>
+
+            
+          </div>
+
+          <ul class="project-list">
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-1.jpg" alt="finance" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Finance</h3>
+
+                <p class="project-category">Data Analysis</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-2.png" alt="orizon" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Orizon</h3>
+
+                <p class="project-category">Data Analysis</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-3.jpg" alt="fundo" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Fundo</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-4.png" alt="brawlhalla" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Brawlhalla</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-5.png" alt="dsm." loading="lazy">
+                </figure>
+
+                <h3 class="project-title">DSM.</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web design">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-6.png" alt="metaspark" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">MetaSpark</h3>
+
+                <p class="project-category">Web design</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-7.png" alt="summary" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Summary</h3>
+
+                <p class="project-category">Data Analysis</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="applications">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-8.jpg" alt="task manager" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Task Manager</h3>
+
+                <p class="project-category">Applications</p>
+
+              </a>
+            </li>
+
+            <li class="project-item  active" data-filter-item data-category="web development">
+              <a href="#">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+
+                  <img src="./assets/images/project-9.png" alt="arrival" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Arrival</h3>
+
+                <p class="project-category">Data Analysis</p>
+
+              </a>
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/place/Tempe,+AZ/@33.3918952,-112.0105012,12z/data=!3m1!4b1!4m6!3m5!1s0x872b0898a6aa80e3:0xa2dd4aad392cb41f!8m2!3d33.4255104!4d-111.9400054!16zL20vMHFwc24?entry=ttu"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
