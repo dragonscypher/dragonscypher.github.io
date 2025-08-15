@@ -1,6 +1,4 @@
 'use strict';
-console.log('script.js loaded');
-'use strict';
 
 
 
@@ -143,28 +141,22 @@ const pages = document.querySelectorAll("[data-page]");
 if (navigationLinks && navigationLinks.length && pages && pages.length) {
     navigationLinks.forEach((navLink) => {
         navLink.addEventListener('click', function () {
-            try {
-                console.log('Nav clicked:', this.textContent);
-                // Normalize nav link text
-                const navText = this.textContent.trim().toLowerCase().replace(/-/g, "");
-                // Remove 'active' from all nav links and pages
-                navigationLinks.forEach(link => link.classList.remove('active'));
-                pages.forEach(page => page.classList.remove('active'));
-                // Add 'active' to clicked nav link
-                this.classList.add('active');
-                // Add 'active' to matching page
-                pages.forEach(page => {
-                    if (page.dataset.page) {
-                        const pageName = page.dataset.page.trim().toLowerCase().replace(/-/g, "");
-                        if (navText === pageName) {
-                            page.classList.add('active');
-                            window.scrollTo(0, 0);
-                        }
+            // Normalize nav link text
+            const navText = this.textContent.trim().toLowerCase().replace(/-/g, "");
+            // Remove 'active' from all nav links and pages
+            navigationLinks.forEach(link => link.classList.remove('active'));
+            pages.forEach(page => page.classList.remove('active'));
+            // Add 'active' to clicked nav link
+            this.classList.add('active');
+            // Add 'active' to matching page
+            pages.forEach(page => {
+                if (page.dataset.page) {
+                    const pageName = page.dataset.page.trim().toLowerCase().replace(/-/g, "");
+                    if (navText === pageName) {
+                        page.classList.add('active');
                     }
-                });
-            } catch (err) {
-                console.error('Navigation error:', err);
-            }
+                }
+            });
         });
     });
 }
