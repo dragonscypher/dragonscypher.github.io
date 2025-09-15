@@ -78,11 +78,22 @@ if (selectItems && selectItems.length && selectValue && select) {
 
 // filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
+// Map top-level filter keys to the full set of underlying category tokens
 const filterMap = {
-    ai: ["ai", "machine-learning", "medical-ai", "healthcare-ai", "optimization", "game-data-management"],
-    cloud: ["cloud-computing", "automation", "sustainability"],
-    data: ["data-analysis", "visualization", "research", "finance"],
-    dev: ["ar-vr", "web-dev", "dev"],
+    ai: [
+        "ai", "machine-learning", "medical-ai", "healthcare-ai", "optimization",
+        "game-data-management", "security-crypto", "medical-ai", "healthcare-ai"
+    ],
+    cloud: [
+        "cloud-computing", "automation", "sustainability", "environmental-monitoring"
+    ],
+    data: [
+        "data-analysis", "visualization", "research", "finance", "browser-extension",
+        "game-data-management"
+    ],
+    dev: [
+        "ar-vr", "browser-extension", "security-crypto", "automation", "web-dev", "dev"
+    ],
 };
 
 function filterFunc(selectedValue) {
