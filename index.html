@@ -729,7 +729,18 @@
                         <!-- JS-rendered via projects-data.js + script.js -->
                     </ul>
 
-                    <!-- GitHub discovery replaced by direct link -->
+                    <!-- GitHub auto-discovered repos (populated by script.js) -->
+                    <div class="github-more-section" id="github-more-section" hidden>
+                        <button class="github-more-btn" id="github-more-btn" aria-expanded="false">
+                            <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
+                            <span>More on GitHub</span>
+                            <span class="github-more-count" id="github-more-count"></span>
+                            <ion-icon name="chevron-down-outline" class="github-more-chevron" aria-hidden="true"></ion-icon>
+                        </button>
+                        <ul class="github-repos-list" id="github-repos-list" hidden></ul>
+                    </div>
+
+                    <!-- Direct GitHub link always visible -->
                     <a href="https://github.com/dragonscypher?tab=repositories" target="_blank"
                         rel="noopener noreferrer" class="github-all-link">
                         <ion-icon name="logo-github" aria-hidden="true"></ion-icon>

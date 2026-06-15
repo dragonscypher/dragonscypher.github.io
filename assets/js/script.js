@@ -135,7 +135,80 @@ if (projectFilterEl) {
     projectFilterEl.addEventListener("change", function () { renderProjects(this.value); });
 }
 
+// ─── GITHUB REPO NORMALIZER (for deduplication) ─────────────────────────────
+function normalizeKey(s) {
+    return (s || "").toLowerCase().replace(/[-_\s]/g, "");
+}
+
+// ─── GITHUB AUTO-DISCOVER (collapsed "More on GitHub") ──────────────────────
+async function loadGitHubRepos() {
+    const section = document.getElementById("github-more-section");
+    const list = document.getElementById("github-repos-list");
+    const countEl = document.getElementById("github-more-count");
+    const btn = document.getElementById("github-more-btn");
+    if (!section || !list || !btn) return;
+
+    // Build curated keys set — dedupe against everything already shown
+    const curatedKeys = new Set(
+        (typeof PROJECTS !== "undefined" ? PROJECTS : [])
+            .map(p => normalizeKey(p.repoName || p.id || p.title))
+    );
+
+    try {
+        const res = await fetch(
+            "https://api.github.com/users/dragonscypher/repos?per_page=100&sort=updated&type=public",
+            { headers: { "Accept": "application/vnd.github+json" } }
+        );
+        if (!res.ok) throw new Error("GitHub API " + res.status);
+        const repos = await res.json();
+
+        const filtered = repos
+            .filter(r => {
+                if (r.fork || r.archived) return false;
+                if (!r.description || r.description.trim().length < 10) return false;
+                // Exclude profile/meta repos
+                if (r.name.toLowerCase() === r.owner.login.toLowerCase()) return false;
+                if (r.name.toLowerCase().includes(".github.io")) return false;
+                if (/^(leetcode|dotfiles|config|readme|profile)/i.test(r.name)) return false;
+                if (curatedKeys.has(normalizeKey(r.name))) return false;
+                return true;
+            })
+            .slice(0, 8);
+
+        if (filtered.length === 0) return;
+
+        list.innerHTML = "";
+        filtered.forEach(r => {
+            const li = document.createElement("li");
+            li.className = "github-repo-item";
+            const updated = new Date(r.pushed_at).getFullYear();
+            li.innerHTML = `<a href="${r.html_url}" target="_blank" rel="noopener noreferrer" class="github-repo-link">
+                <span class="github-repo-name">${r.name.replace(/-/g, " ")}</span>
+                <span class="github-repo-desc">${r.description}</span>
+                <span class="github-repo-meta">${r.language || ""}${r.language ? " · " : ""}${updated}</span>
+            </a>`;
+            list.appendChild(li);
+        });
+
+        if (countEl) countEl.textContent = "(" + filtered.length + ")";
+        section.hidden = false;
+
+        // Toggle behavior
+        btn.addEventListener("click", () => {
+            const open = btn.getAttribute("aria-expanded") === "true";
+            btn.setAttribute("aria-expanded", String(!open));
+            btn.classList.toggle("open", !open);
+            list.hidden = open;
+        });
+
+    } catch (err) {
+        console.warn("GitHub repos fetch skipped:", err.message);
+        // section stays hidden — graceful fallback
+    }
+}
+
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
     renderProjects("all");
+    loadGitHubRepos();
 });

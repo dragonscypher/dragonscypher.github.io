@@ -313,37 +313,7 @@ article.active {
     border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   FILTER PANEL — remove inline styles
-   ══════════════════════════════════════════════════════════════════════ */
-.filter-panel {
-    background: var(--eerie-black-2);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    max-width: 320px;
-}
-
-.filter-panel label,
-.filter-panel>label {
-    color: var(--orange-yellow-crayola);
-    font-family: var(--font-display);
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: block;
-}
-
-#project-filter {
-    width: 100%;
-    background: var(--onyx);
-    color: var(--white-2);
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 16px;
-    border: none;
-    font-family: var(--font-display);
-}
+/* filter-panel styles — see end of file */
 
 /* ══════════════════════════════════════════════════════════════════════
    CONTACT FORM — remove inline styles
@@ -677,38 +647,8 @@ article {
     background: #0d1117;
 }
 
-/* ══════════════════════════════════════════════════════════════════════
-   FILTER PANEL — replace inline styles
-   ══════════════════════════════════════════════════════════════════════ */
-.filter-panel {
-    background: var(--eerie-black-2);
-    border-radius: 12px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
-    max-width: 320px;
-}
+/* filter-panel duplicate — see end of file */
 
-.filter-panel label {
-    color: var(--orange-yellow-crayola);
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: block;
-    font-family: var(--font-display);
-    font-size: 13px;
-}
-
-#project-filter {
-    width: 100%;
-    background: var(--onyx);
-    color: var(--white-2);
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 15px;
-    border: none;
-    font-family: var(--font-display);
-    cursor: pointer;
-}
 
 #project-filter:focus-visible {
     outline: 2px solid var(--orange-yellow-crayola);
@@ -1289,4 +1229,148 @@ body {
     .skill-group-label {
         font-size: 9px;
     }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   GITHUB MORE SECTION — collapsed auto-discovered repos
+   ══════════════════════════════════════════════════════════════════════ */
+.github-more-section {
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 16px;
+}
+
+.github-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-family: var(--font-display);
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.github-more-btn:hover,
+.github-more-btn.open {
+    border-color: rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.github-more-count {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.github-more-chevron {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+.github-more-btn.open .github-more-chevron {
+    transform: rotate(180deg);
+}
+
+.github-repos-list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+/* Ensure [hidden] attribute wins over display:flex */
+.github-repos-list[hidden] {
+    display: none;
+}
+.github-repo-item {
+    border-radius: 7px;
+    transition: background 0.15s ease;
+}
+
+.github-repo-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.github-repo-link {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 12px;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+.github-repo-name {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.82);
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.github-repo-desc {
+    font-family: var(--font-display);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.38);
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.github-repo-meta {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.25);
+    white-space: nowrap;
+}
+
+@media (max-width: 599px) {
+    .github-repo-link {
+        flex-wrap: wrap;
+        gap: 4px 12px;
+    }
+    .github-repo-desc {
+        white-space: normal;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   FILTER PANEL — cleaner inline style
+   ══════════════════════════════════════════════════════════════════════ */
+.filter-panel {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.filter-panel label {
+    font-family: var(--font-display);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.32);
+    white-space: nowrap;
+}
+
+#project-filter {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 7px;
+    padding: 6px 12px;
+    font-size: 12.5px;
+    font-family: var(--font-display);
+    color: rgba(255, 255, 255, 0.72);
+    cursor: pointer;
+    appearance: auto;
 }
