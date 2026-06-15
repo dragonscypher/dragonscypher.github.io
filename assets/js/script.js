@@ -41,37 +41,28 @@ function getProjectUrl(p) {
     return null;
 }
 
-function buildProjectCard(p) {
+function buildProjectCard(p, index) {
     const li = document.createElement("li");
-    li.className = "project-item active";
+    li.className = "project-item";
     li.dataset.status = p.status || "archive";
 
     const gradients = (typeof PROJECT_GRADIENTS !== "undefined") ? PROJECT_GRADIENTS : ["linear-gradient(135deg,#0d1117,#161b22)"];
     const grad = gradients[p.gradientId != null ? p.gradientId % gradients.length : 0];
+    const numStr = index != null ? String(index + 1).padStart(2, "0") : "";
+    const primary = (p.categories || [])[0] || "tools";
 
-    // Image or gradient placeholder
-    const imgHtml = p.image
-        ? `<img src="${p.image}" alt="${p.title}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` +
-        `<div class="project-img-placeholder" style="display:none;background:${grad}"><span class="project-initial">${p.title.charAt(0).toUpperCase()}</span></div>`
-        : `<div class="project-img-placeholder" style="background:${grad}"><span class="project-initial">${p.title.charAt(0).toUpperCase()}</span></div>`;
+    // Typographic tile — no fake image dependency
+    const tileHtml = `
+    <div class="project-tile" style="--tile-bg:${grad}" data-cat="${primary}">
+      <div class="project-tile-number">${numStr}</div>
+      <h3 class="project-tile-title">${p.title}</h3>
+      <p class="project-tile-cat">${p.subtitle || ""}</p>
+    </div>`;
 
-    const techHtml = (p.tech || []).slice(0, 5).map(t => `<span class="project-tag">${t}</span>`).join("");
-    const descHtml = (p.status === "featured" && p.description)
-        ? `<p class="project-desc">${p.description}</p>` : "";
-    const badge = p.status === "featured"
-        ? `<span class="project-status-badge">Featured</span>` : "";
+    const techHtml = (p.tech || []).slice(0, 4).map(t => `<span class="project-tag">${t}</span>`).join("");
 
-    const cardInner = `
-    <figure class="project-img">
-      <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-      ${imgHtml}
-    </figure>
+    const cardInner = `${tileHtml}
     <div class="project-info">
-      <div class="project-title-row">
-        <h3 class="project-title">${p.title}</h3>${badge}
-      </div>
-      <p class="project-category">${p.subtitle || ""}</p>
-      ${descHtml}
       <div class="project-tags">${techHtml}</div>
     </div>`;
 
@@ -81,7 +72,7 @@ function buildProjectCard(p) {
         a.href = url;
         a.target = "_blank";
         a.rel = "noopener noreferrer";
-        a.setAttribute("aria-label", "View " + p.title + " project");
+        a.setAttribute("aria-label", "View " + p.title);
         a.innerHTML = cardInner;
         li.appendChild(a);
     } else {
@@ -117,7 +108,7 @@ function renderProjects(filter) {
 
     if (archive.length > 0) {
         list.appendChild(buildSectionLabel("Selected Earlier Work", "archive-label"));
-        archive.forEach(p => list.appendChild(buildProjectCard(p)));
+        archive.forEach((p, i) => list.appendChild(buildProjectCard(p, i)));
     } else {
         list.appendChild(buildSectionLabel("No projects match this filter."));
     }
@@ -129,66 +120,7 @@ if (projectFilterEl) {
     projectFilterEl.addEventListener("change", function () { renderProjects(this.value); });
 }
 
-// ─── ARCHIVE TOGGLE ──────────────────────────────────────────────────────────
-(function initArchiveToggle() {
-    const btn = document.getElementById("archive-toggle");
-    const dl = document.getElementById("discovered-list");
-    if (!btn || !dl) return;
-    btn.addEventListener("click", () => {
-        const isOpen = dl.classList.toggle("open");
-        btn.setAttribute("aria-expanded", String(isOpen));
-        const label = btn.querySelector("span");
-        if (label) label.textContent = isOpen ? "Hide older experiments" : "Show older experiments";
-    });
-})();
-
-// ─── GITHUB ARCHIVE AUTO-DISCOVERY ───────────────────────────────────────────
-async function loadGitHubArchive() {
-    if (typeof PROJECTS === "undefined") return;
-    try {
-        const res = await fetch("https://api.github.com/users/dragonscypher/repos?per_page=100&sort=updated");
-        if (!res.ok) return;
-        const repos = await res.json();
-        if (!Array.isArray(repos)) return;
-
-        // Build a set of slugs already curated
-        const curated = new Set(PROJECTS.map(p =>
-            (p.repoName || p.id || "").toLowerCase().replace(/[-_\s]/g, "")
-        ));
-
-        const discovered = repos
-            .filter(r => !r.private && !r.fork && !curated.has(r.name.toLowerCase().replace(/[-_\s]/g, "")))
-            .slice(0, 8)
-            .map((r, i) => ({
-                id: r.name.toLowerCase(),
-                title: r.name.replace(/[-_]/g, " "),
-                subtitle: r.description || "GitHub Repository",
-                status: "archive",
-                categories: ["archive"],
-                tech: r.language ? [r.language] : [],
-                githubUrl: r.html_url,
-                image: null,
-                gradientId: i % 10,
-            }));
-
-        if (discovered.length > 0) {
-            // Put discovered repos into the collapsed archive toggle list, not the main list
-            const dl = document.getElementById("discovered-list");
-            if (!dl) return;
-            discovered.forEach(p => dl.appendChild(buildProjectCard(p)));
-            // Show the toggle button only once we have items
-            const btn = document.getElementById("archive-toggle");
-            if (btn) btn.style.display = "flex";
-        }
-    } catch (_) { /* silently fall back to curated data */ }
-}
-
 // ─── INIT ─────────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
-    // Hide archive toggle until GitHub discovery fills it
-    const archiveBtn = document.getElementById("archive-toggle");
-    if (archiveBtn) archiveBtn.style.display = "none";
-
     renderProjects("all");
-    loadGitHubArchive();
 });

@@ -183,11 +183,11 @@ if (typeof gsap !== 'undefined' && !prefersReduced) {
     if (!featuredProjects.length) return;
 
     const stepsContainer = document.getElementById('showcase-steps');
-    const showcaseImg    = document.getElementById('showcase-img');
-    const gradientEl     = document.getElementById('showcase-gradient-fallback');
-    const repoSpan       = document.getElementById('showcase-repo');
-    const counterEl      = document.getElementById('showcase-counter');
-    const deviceEl       = document.getElementById('showcase-device');
+    const showcaseImg = document.getElementById('showcase-img');
+    const gradientEl = document.getElementById('showcase-gradient-fallback');
+    const repoSpan = document.getElementById('showcase-repo');
+    const counterEl = document.getElementById('showcase-counter');
+    const deviceEl = document.getElementById('showcase-device');
 
     if (!stepsContainer || !showcaseImg) return;
 
