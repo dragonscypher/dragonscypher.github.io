@@ -26,6 +26,7 @@ const PROJECTS = [
         tech: ['Python', 'Gradio', 'Ollama', 'PaddleOCR', 'Edge TTS', 'Coqui XTTS', 'Playwright'],
         repoName: 'Outloud',
         image: './assets/images/projects/outloud.svg',
+        imageFit: 'contain',
         gradientId: 0,
     },
     {
@@ -38,6 +39,7 @@ const PROJECTS = [
         tech: ['Python', 'FastAPI', 'Next.js', 'TypeScript', 'React', 'SQLite', 'OCR', 'RxNorm'],
         repoName: 'HealthHelp',
         image: './assets/images/projects/healthhelp.svg',
+        imageFit: 'contain',
         gradientId: 1,
     },
     {
@@ -50,6 +52,7 @@ const PROJECTS = [
         tech: ['Python', 'FastAPI', 'Ollama', 'Hugging Face', 'bitsandbytes', 'PEFT', 'SQLite'],
         repoName: 'CyberForge',
         image: './assets/images/projects/cyberforge.svg',
+        imageFit: 'contain',
         gradientId: 2,
     },
     {
@@ -62,6 +65,7 @@ const PROJECTS = [
         tech: ['Python', 'Django', 'FastAPI', 'Jinja2', 'BeautifulSoup4', 'Hugging Face API'],
         repoName: 'Djangifyed',
         image: './assets/images/projects/djangifyed.svg',
+        imageFit: 'contain',
         gradientId: 3,
     },
     {
@@ -74,6 +78,7 @@ const PROJECTS = [
         tech: ['Python', 'OpenCV', 'PyTorch', 'SLAM', 'Mistral', 'pyttsx3'],
         repoName: 'Vizio',
         image: './assets/images/projects/vizio.svg',
+        imageFit: 'contain',
         gradientId: 4,
     },
     {
@@ -86,6 +91,7 @@ const PROJECTS = [
         tech: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Redis', 'Ollama', 'Tailwind', 'Docker'],
         repoName: 'Autofile',
         image: './assets/images/projects/autofile.svg',
+        imageFit: 'contain',
         gradientId: 5,
     },
     {
@@ -98,6 +104,7 @@ const PROJECTS = [
         tech: ['Node.js', 'TypeScript', 'Express', 'Prisma', 'SQLite', 'Argon2id', 'FastAPI', 'Sentence Transformers'],
         repoName: 'Groupem',
         image: './assets/images/projects/groupem.svg',
+        imageFit: 'contain',
         gradientId: 6,
     },
     {
@@ -110,6 +117,7 @@ const PROJECTS = [
         tech: ['Python', 'cryptography', 'Argon2id', 'AES-GCM', 'XChaCha20-Poly1305', 'PyQt5', 'Vosk'],
         repoName: 'LockerIT',
         image: './assets/images/projects/lockerit.svg',
+        imageFit: 'contain',
         gradientId: 7,
     },
     {
@@ -122,6 +130,7 @@ const PROJECTS = [
         tech: ['Python', 'PyTorch', 'Flask', 'EfficientNet', 'Torch-TensorRT', 'CUDA', 'Hugging Face'],
         repoName: 'Rayz',
         image: './assets/images/projects/rayz.svg',
+        imageFit: 'contain',
         gradientId: 8,
     },
     {
@@ -134,6 +143,7 @@ const PROJECTS = [
         tech: ['Python', 'PuLP', 'Pandas', 'Matplotlib'],
         repoName: 'Opticomp',
         image: './assets/images/projects/opticomp.svg',
+        imageFit: 'contain',
         gradientId: 9,
     },
 
@@ -223,6 +233,7 @@ const PROJECTS = [
         title: 'Cancer Sleuth',
         subtitle: 'Colon Cancer ML Classification',
         status: 'archive',
+        hidden: true,
         categories: ['ai', 'healthcare', 'archive'],
         tech: ['Python', 'PyTorch'],
         repoName: 'Cancer-Sleuth',
@@ -233,6 +244,7 @@ const PROJECTS = [
         title: 'Galactic Guardians',
         subtitle: 'Multiplayer Space Shooter',
         status: 'archive',
+        hidden: true,
         categories: ['archive'],
         tech: ['OpenGL', 'Socket Programming'],
         repoName: 'Galactic-Guardians',
@@ -262,6 +274,7 @@ const PROJECTS = [
         title: 'FIFA Player Management System',
         subtitle: 'Data Management & Gaming',
         status: 'archive',
+        hidden: true,
         categories: ['data', 'archive'],
         tech: ['SQL', 'Python'],
         image: './assets/images/fifa-player-management.webp',
