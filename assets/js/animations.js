@@ -221,6 +221,12 @@ if (typeof gsap !== 'undefined' && !prefersReduced) {
             showcaseImg.src = project.image;
             showcaseImg.alt = project.title;
             showcaseImg.style.display = 'block';
+            // Use contain for diagrams/SVGs, cover for real screenshots
+            if (project.imageFit === 'contain') {
+                showcaseImg.setAttribute('data-fit', 'contain');
+            } else {
+                showcaseImg.removeAttribute('data-fit');
+            }
             if (gradientEl) gradientEl.style.display = 'none';
         } else {
             showcaseImg.style.display = 'none';
