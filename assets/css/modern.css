@@ -1,0 +1,497 @@
+/*
+ * modern.css — Phase 4 single-page scroll experience
+ * Layered on top of style.css; overrides only what's needed.
+ * Space Grotesk typography · GSAP-ready · Accessibility-first
+ */
+
+/* ══════════════════════════════════════════════════════════════════════
+   TYPOGRAPHY — Space Grotesk
+   ══════════════════════════════════════════════════════════════════════ */
+:root {
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+}
+
+body,
+.h1, .h2, .h3, .h4, .h5,
+.article-title,
+.name,
+.navbar-link,
+.timeline-item-title,
+.hero-name,
+.hero-eyebrow,
+.hero-desc {
+  font-family: var(--font-display);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   SINGLE-PAGE SCROLL — Show all articles (override display:none)
+   ══════════════════════════════════════════════════════════════════════ */
+article {
+  display: block;
+}
+
+article.active {
+  display: block;
+  animation: none;
+}
+
+/* Consistent spacing between stacked sections */
+.main-content article + article {
+  margin-top: 24px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ══════════════════════════════════════════════════════════════════════ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.scroll-progress::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--orange-yellow-crayola);
+  transform: scaleX(var(--scroll, 0));
+  transform-origin: left center;
+  transition: transform 0.05s linear;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   HERO SECTION
+   ══════════════════════════════════════════════════════════════════════ */
+.hero {
+  padding: 80px 24px 64px;
+  background: #08080f;
+  background-image:
+    radial-gradient(ellipse at 10% 30%, rgba(50, 90, 255, 0.09) 0%, transparent 55%),
+    radial-gradient(ellipse at 90% 70%, rgba(255, 165, 0, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 55% 5%, rgba(130, 40, 210, 0.05) 0%, transparent 40%);
+  background-attachment: fixed;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+/* Avatar block */
+.hero-avatar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-avatar-wrap img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.09);
+  object-fit: cover;
+  box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.02), 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.hero-status {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 500;
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.08);
+  border: 1px solid rgba(74, 222, 128, 0.22);
+  border-radius: 20px;
+  padding: 4px 14px;
+  letter-spacing: 0.6px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Hero text block */
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--orange-yellow-crayola);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  opacity: 0.9;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: #f0f0f8;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hero-role {
+  color: var(--orange-yellow-crayola);
+  font-size: clamp(1.3rem, 2.2vw, 2rem);
+  font-weight: 500;
+  display: block;
+}
+
+.hero-desc {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+  line-height: 1.75;
+  color: var(--light-gray);
+  margin-top: 16px;
+  margin-bottom: 28px;
+  max-width: 580px;
+}
+
+/* CTA buttons */
+.hero-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.btn-primary,
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 26px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--orange-yellow-crayola);
+  color: #08080f;
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: hsl(45, 100%, 68%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(247, 201, 72, 0.35);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--light-gray);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  border-color: var(--orange-yellow-crayola);
+  color: var(--orange-yellow-crayola);
+  transform: translateY(-2px);
+}
+
+/* Tech tag row */
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hero-tags span {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 13px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--light-gray-70, #a6a6b8);
+  letter-spacing: 0.2px;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   NAVBAR — sticky on mobile (override fixed-bottom)
+   At 1024px+ the original CSS positions it at top-right of main-content
+   ══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 1023px) {
+  .navbar {
+    position: sticky;
+    top: 0;
+    bottom: auto;
+    border-radius: 0;
+    z-index: 50;
+  }
+}
+
+/* Anchor links inside navbar (was buttons) */
+.navbar-link {
+  display: inline-block;
+  text-decoration: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   SKILL ITEMS — remove inline styles, use CSS class
+   ══════════════════════════════════════════════════════════════════════ */
+.skill-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 0 18px;
+  min-width: fit-content;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--light-gray);
+  white-space: nowrap;
+}
+
+.skill-item::after {
+  content: attr(data-skill);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   FILTER PANEL — remove inline styles
+   ══════════════════════════════════════════════════════════════════════ */
+.filter-panel {
+  background: var(--eerie-black-2);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  max-width: 320px;
+}
+
+.filter-panel label,
+.filter-panel > label {
+  color: var(--orange-yellow-crayola);
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+}
+
+#project-filter {
+  width: 100%;
+  background: var(--onyx);
+  color: var(--white-2);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: none;
+  font-family: var(--font-display);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   CONTACT FORM — remove inline styles
+   ══════════════════════════════════════════════════════════════════════ */
+.contact-form .input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.contact-form .form-btn {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   PUBLICATIONS — link styling fix (replace inline style="color:white")
+   ══════════════════════════════════════════════════════════════════════ */
+.timeline-item-title a {
+  color: var(--white-2);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.timeline-item-title a:hover,
+.timeline-item-title a:focus-visible {
+  color: var(--orange-yellow-crayola);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   A11Y / LINT FIXES
+
+   1. backdrop-filter prefix order (webkit must come first)
+   2. user-select for project-initial
+   3. standard line-clamp alongside webkit
+   ══════════════════════════════════════════════════════════════════════ */
+
+/* Re-declare with correct prefix order */
+.sidebar,
+article {
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  backdrop-filter: blur(20px) saturate(160%);
+}
+
+/* user-select fix */
+.project-initial {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* line-clamp fix: add standard property after -webkit- */
+.project-desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   PROJECT CARDS — featured card image enhancement
+   ══════════════════════════════════════════════════════════════════════ */
+.project-img {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.project-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.project-item:hover .project-img img {
+  transform: scale(1.04);
+}
+
+/* SVG images: fit contain so nothing gets cropped */
+.project-img img[src$=".svg"] {
+  object-fit: cover;
+  background: #08080f;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   GSAP ANIMATION STATES
+   (Elements start invisible; GSAP makes them visible on scroll)
+   ══════════════════════════════════════════════════════════════════════ */
+.gsap-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+}
+
+/* Reduced motion: skip all transforms */
+@media (prefers-reduced-motion: reduce) {
+  .gsap-hidden {
+    opacity: 1;
+    transform: none;
+  }
+
+  .btn-primary:hover,
+  .btn-ghost:hover,
+  .project-item:hover .project-img img {
+    transform: none;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   RESPONSIVE — Hero section
+   ══════════════════════════════════════════════════════════════════════ */
+@media (max-width: 599px) {
+  .hero {
+    padding: 48px 18px 40px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .hero-avatar-wrap {
+    margin: 0 auto;
+  }
+
+  .hero-avatar-wrap img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-tags {
+    justify-content: center;
+  }
+
+  .hero-desc {
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1023px) {
+  .hero-inner {
+    gap: 36px;
+  }
+
+  .hero-avatar-wrap img {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1249px) {
+  .hero-inner {
+    gap: 48px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   SECTION SPACING — main content padding at top on desktop
+   ══════════════════════════════════════════════════════════════════════ */
+@media (min-width: 1250px) {
+  main {
+    padding-top: 0;
+  }
+
+  .main-content {
+    /* keep sidebar + content side by side */
+  }
+}
