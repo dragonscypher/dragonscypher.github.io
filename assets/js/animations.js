@@ -269,20 +269,8 @@ if (typeof gsap !== 'undefined' && !prefersReduced) {
 
     steps.forEach(s => io.observe(s));
 
-    // GSAP ScrollTrigger pin on desktop only
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined' && window.innerWidth >= 1024 && !prefersReduced) {
-        const wrap = document.querySelector('.showcase-device-wrap');
-        const showcase = document.getElementById('project-showcase');
-        if (wrap && showcase) {
-            ScrollTrigger.create({
-                trigger: showcase,
-                pin: wrap,
-                start: 'top 80px',
-                end: 'bottom bottom',
-                pinSpacing: false,
-            });
-        }
-    }
+    // CSS position:sticky handles the device-wrap pin reliably.
+    // GSAP ScrollTrigger pin removed — it caused position:fixed bleed-over onto content.
 })();
 
 // ─── ACTIVE NAV LINK ON SCROLL ───────────────────────────────────────────────

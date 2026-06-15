@@ -92,14 +92,20 @@ function buildSectionLabel(text, cls) {
 function renderProjects(filter) {
     if (typeof PROJECTS === "undefined") return;
     const list = document.getElementById("project-list");
+    const nprojectsSection = document.querySelector(".nprojects");
     if (!list) return;
 
     list.innerHTML = "";
     const f = filter || "all";
 
+    const seen = new Set();
     const matches = p => {
-        if (p.hidden) return false;           // always hide flagged projects
-        if (p.status === "featured") return false; // featured go in showcase, not here
+        if (p.hidden) return false;
+        if (p.status === "featured") return false;
+        // Dedupe by repoName or id
+        const key = (p.repoName || p.id || p.title || "").toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
         if (f === "all") return true;
         return Array.isArray(p.categories) && p.categories.includes(f);
     };
@@ -109,8 +115,17 @@ function renderProjects(filter) {
     if (archive.length > 0) {
         list.appendChild(buildSectionLabel("Selected Earlier Work", "archive-label"));
         archive.forEach((p, i) => list.appendChild(buildProjectCard(p, i)));
+        if (nprojectsSection) nprojectsSection.style.display = "";
+    } else if (f !== "all") {
+        // Only show empty message when a filter is actively applied
+        const li = document.createElement("li");
+        li.className = "project-section-label";
+        li.textContent = "No projects match this filter.";
+        list.appendChild(li);
+        if (nprojectsSection) nprojectsSection.style.display = "";
     } else {
-        list.appendChild(buildSectionLabel("No projects match this filter."));
+        // No archive projects at all — hide the whole section
+        if (nprojectsSection) nprojectsSection.style.display = "none";
     }
 }
 
