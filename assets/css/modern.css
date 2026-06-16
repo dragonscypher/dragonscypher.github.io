@@ -1568,6 +1568,15 @@ body {
     white-space: nowrap;
 }
 
+.filter-copy {
+    flex-basis: 100%;
+    margin: 0;
+    color: var(--text-muted);
+    font-family: var(--font-display);
+    font-size: 12.5px;
+    line-height: 1.5;
+}
+
 #project-filter {
     background: var(--surface-soft);
     border: 1px solid var(--border-soft);

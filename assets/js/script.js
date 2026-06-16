@@ -177,18 +177,19 @@ function renderProjects(filter) {
 
     const seen = new Set();
     const matches = p => {
-        if (p.hidden) return false;
-        if (p.status === "featured") return false;
-        if (isDuplicateProject(p, seen)) return false;
-        if (f === "all") return true;
-        return Array.isArray(p.categories) && p.categories.includes(f);
+        if (f === "all") {
+            if (p.hidden || p.status === "featured") return false;
+            return !isDuplicateProject(p, seen);
+        }
+        if (!Array.isArray(p.categories) || !p.categories.includes(f)) return false;
+        return !isDuplicateProject(p, seen);
     };
 
-    const archive = PROJECTS.filter(matches);
+    const projects = PROJECTS.filter(matches);
 
-    if (archive.length > 0) {
-        list.appendChild(buildSectionLabel("Selected Earlier Work", "archive-label"));
-        archive.forEach((p, i) => list.appendChild(buildProjectCard(p, i)));
+    if (projects.length > 0) {
+        list.appendChild(buildSectionLabel(f === "all" ? "Selected Earlier Work" : "Matching Projects", "archive-label"));
+        projects.forEach((p, i) => list.appendChild(buildProjectCard(p, i)));
         if (nprojectsSection) nprojectsSection.style.display = "";
     } else if (f !== "all") {
         // Only show empty message when a filter is actively applied
