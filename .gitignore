@@ -1,0 +1,11 @@
+# Temp / scratch files
+diff_tmp.txt
+*.tmp
+*.log
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json

@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0003"/>
+      <stop offset="60%" stop-color="#1a0008"/>
+      <stop offset="100%" stop-color="#110005"/>
+    </linearGradient>
+    <radialGradient id="vaultGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#dc143c" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#dc143c" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Radial glow behind vault -->
+  <circle cx="400" cy="200" r="200" fill="url(#vaultGlow)"/>
+
+  <!-- Grid -->
+  <g opacity="0.06" stroke="#dc143c" stroke-width="0.5">
+    <line x1="0" y1="90" x2="800" y2="90"/><line x1="0" y1="180" x2="800" y2="180"/>
+    <line x1="0" y1="270" x2="800" y2="270"/><line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="160" y1="0" x2="160" y2="450"/><line x1="320" y1="0" x2="320" y2="450"/>
+    <line x1="480" y1="0" x2="480" y2="450"/><line x1="640" y1="0" x2="640" y2="450"/>
+  </g>
+
+  <!-- Vault door (center) -->
+  <g transform="translate(270, 70)" filter="url(#glow)">
+    <!-- Outer vault ring -->
+    <circle cx="130" cy="130" r="120" fill="none" stroke="#dc143c" stroke-width="3" opacity="0.8"/>
+    <circle cx="130" cy="130" r="105" fill="#1a0008" stroke="#8b0020" stroke-width="1.5" opacity="0.9"/>
+    <!-- Rotation segments -->
+    <g stroke="#dc143c" stroke-width="1.5" opacity="0.4">
+      <line x1="130" y1="25" x2="130" y2="45"/>
+      <line x1="130" y1="215" x2="130" y2="235"/>
+      <line x1="25" y1="130" x2="45" y2="130"/>
+      <line x1="215" y1="130" x2="235" y2="130"/>
+      <line x1="55" y1="55" x2="70" y2="70"/>
+      <line x1="205" y1="55" x2="190" y2="70"/>
+      <line x1="55" y1="205" x2="70" y2="190"/>
+      <line x1="205" y1="205" x2="190" y2="190"/>
+    </g>
+    <!-- Lock bolt bars -->
+    <rect x="110" y="25" width="40" height="15" rx="4" fill="#dc143c" opacity="0.8"/>
+    <rect x="110" y="220" width="40" height="15" rx="4" fill="#dc143c" opacity="0.8"/>
+    <rect x="25" y="120" width="15" height="20" rx="4" fill="#dc143c" opacity="0.8"/>
+    <rect x="220" y="120" width="15" height="20" rx="4" fill="#dc143c" opacity="0.8"/>
+    <!-- Inner mechanism -->
+    <circle cx="130" cy="130" r="60" fill="none" stroke="#dc143c" stroke-width="1.5" opacity="0.6"/>
+    <circle cx="130" cy="130" r="35" fill="#0f0003" stroke="#8b0020" stroke-width="1.5"/>
+    <!-- Key hole -->
+    <circle cx="130" cy="120" r="10" fill="#dc143c" opacity="0.8"/>
+    <rect x="124" y="120" width="12" height="20" rx="2" fill="#dc143c" opacity="0.8"/>
+  </g>
+
+  <!-- Biometric waveform (bottom) -->
+  <g filter="url(#glow)" opacity="0.7">
+    <polyline points="60,380 90,380 105,350 120,410 135,340 150,420 165,360 180,400 195,370 210,390 225,380 255,380 270,360 285,400 300,370 315,390 330,380 360,380 375,360 390,400 405,375 420,385 435,380"
+      fill="none" stroke="#ffd700" stroke-width="2"/>
+    <polyline points="435,380 460,380 475,360 490,400 505,370 520,390 535,380"
+      fill="none" stroke="#ffd700" stroke-width="2" opacity="0.6"/>
+    <polyline points="535,380 565,380 580,365 595,395 610,378 625,385 640,380 680,380 700,380"
+      fill="none" stroke="#ffd700" stroke-width="2" opacity="0.35"/>
+  </g>
+
+  <!-- Rotating key icons (orbiting) -->
+  <g filter="url(#glow)" opacity="0.5">
+    <g transform="translate(145, 95) rotate(45)">
+      <rect x="-5" y="-15" width="10" height="25" rx="5" fill="none" stroke="#ffd700" stroke-width="1.5"/>
+      <circle cx="0" cy="-15" r="8" fill="none" stroke="#ffd700" stroke-width="1.5"/>
+      <circle cx="0" cy="-15" r="3" fill="#ffd700"/>
+    </g>
+    <g transform="translate(635, 110) rotate(-30)">
+      <rect x="-5" y="-15" width="10" height="25" rx="5" fill="none" stroke="#ffd700" stroke-width="1.5"/>
+      <circle cx="0" cy="-15" r="8" fill="none" stroke="#ffd700" stroke-width="1.5"/>
+      <circle cx="0" cy="-15" r="3" fill="#ffd700"/>
+    </g>
+    <g transform="translate(100, 330) rotate(20)">
+      <rect x="-4" y="-12" width="8" height="20" rx="4" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.6"/>
+      <circle cx="0" cy="-12" r="6" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.6"/>
+    </g>
+    <g transform="translate(680, 310) rotate(-15)">
+      <rect x="-4" y="-12" width="8" height="20" rx="4" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.6"/>
+      <circle cx="0" cy="-12" r="6" fill="none" stroke="#ffd700" stroke-width="1" opacity="0.6"/>
+    </g>
+  </g>
+
+  <text x="40" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#dc143c" opacity="0.6" letter-spacing="2">LOCKERIT</text>
+  <text x="40" y="408" font-family="system-ui,sans-serif" font-size="9" fill="#ffffff" opacity="0.35" letter-spacing="1">OFFLINE ENCRYPTED VAULT</text>
+  <line x1="40" y1="375" x2="110" y2="375" stroke="#dc143c" stroke-width="1.5" opacity="0.5"/>
+</svg>

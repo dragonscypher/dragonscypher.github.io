@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#020f1a"/>
+      <stop offset="60%" stop-color="#0a2236"/>
+      <stop offset="100%" stop-color="#051520"/>
+    </linearGradient>
+    <linearGradient id="bridgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00e676"/>
+      <stop offset="50%" stop-color="#00bcd4"/>
+      <stop offset="100%" stop-color="#00e676"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Grid -->
+  <g opacity="0.05" stroke="#00e676" stroke-width="0.5">
+    <line x1="0" y1="90" x2="800" y2="90"/><line x1="0" y1="225" x2="800" y2="225"/><line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="200" y1="0" x2="200" y2="450"/><line x1="400" y1="0" x2="400" y2="450"/><line x1="600" y1="0" x2="600" y2="450"/>
+  </g>
+
+  <!-- India side (left pill icon) -->
+  <g transform="translate(80, 150)" filter="url(#glow)">
+    <rect x="0" y="0" width="80" height="120" rx="40" fill="none" stroke="#00e676" stroke-width="2" opacity="0.7"/>
+    <rect x="8" y="12" width="64" height="46" rx="32" fill="#00e676" opacity="0.15"/>
+    <rect x="8" y="62" width="64" height="46" rx="32" fill="#00bcd4" opacity="0.1"/>
+    <line x1="0" y1="60" x2="80" y2="60" stroke="#00e676" stroke-width="1.5" opacity="0.5"/>
+    <text x="40" y="40" font-family="system-ui,sans-serif" font-size="9" fill="#00e676" opacity="0.8" text-anchor="middle">IN</text>
+    <text x="40" y="88" font-family="system-ui,sans-serif" font-size="9" fill="#00bcd4" opacity="0.8" text-anchor="middle">RX</text>
+  </g>
+
+  <!-- Bridge / pipeline center -->
+  <g filter="url(#glow)" opacity="0.9">
+    <line x1="165" y1="210" x2="635" y2="210" stroke="url(#bridgeGrad)" stroke-width="2.5" stroke-dasharray="8 4"/>
+    <!-- Pipeline nodes -->
+    <circle cx="240" cy="210" r="7" fill="#00e676" opacity="0.8"/>
+    <circle cx="330" cy="210" r="5" fill="#00bcd4" opacity="0.7"/>
+    <circle cx="400" cy="210" r="9" fill="#00bcd4"/>
+    <circle cx="470" cy="210" r="5" fill="#00e676" opacity="0.7"/>
+    <circle cx="560" cy="210" r="7" fill="#00e676" opacity="0.8"/>
+    <!-- OCR scan line -->
+    <rect x="360" y="160" width="80" height="100" rx="4" fill="none" stroke="#00bcd4" stroke-width="1" opacity="0.4"/>
+    <line x1="360" y1="195" x2="440" y2="195" stroke="#00bcd4" stroke-width="1.5" opacity="0.6"/>
+    <text x="400" y="175" font-family="system-ui,sans-serif" font-size="8" fill="#00bcd4" opacity="0.7" text-anchor="middle">OCR</text>
+  </g>
+
+  <!-- US side (right pill icon) -->
+  <g transform="translate(640, 150)" filter="url(#glow)">
+    <rect x="0" y="0" width="80" height="120" rx="40" fill="none" stroke="#00e676" stroke-width="2" opacity="0.7"/>
+    <rect x="8" y="12" width="64" height="96" rx="32" fill="#00e676" opacity="0.1"/>
+    <text x="40" y="64" font-family="system-ui,sans-serif" font-size="9" fill="#00e676" opacity="0.8" text-anchor="middle">US</text>
+    <text x="40" y="78" font-family="system-ui,sans-serif" font-size="7" fill="#ffffff" opacity="0.4" text-anchor="middle">OTC</text>
+  </g>
+
+  <!-- Pharmacy icon (bottom center) -->
+  <g transform="translate(345, 280)" opacity="0.6">
+    <rect x="0" y="0" width="110" height="80" rx="6" fill="none" stroke="#00e676" stroke-width="1"/>
+    <text x="55" y="28" font-family="system-ui,sans-serif" font-size="20" fill="#00e676" text-anchor="middle">+</text>
+    <rect x="16" y="44" width="78" height="2" rx="1" fill="#00bcd4" opacity="0.6"/>
+    <rect x="16" y="54" width="60" height="2" rx="1" fill="#00bcd4" opacity="0.4"/>
+    <rect x="16" y="64" width="70" height="2" rx="1" fill="#00bcd4" opacity="0.4"/>
+  </g>
+
+  <!-- Labels -->
+  <text x="40" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#00e676" opacity="0.6" letter-spacing="2">HEALTHHELP</text>
+  <text x="40" y="408" font-family="system-ui,sans-serif" font-size="9" fill="#ffffff" opacity="0.35" letter-spacing="1">INDIA ↔ U.S. MEDICINE RESOLVER</text>
+  <line x1="40" y1="375" x2="140" y2="375" stroke="#00e676" stroke-width="1.5" opacity="0.5"/>
+</svg>

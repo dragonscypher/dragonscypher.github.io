@@ -499,6 +499,7 @@ main {
     left: 0;
     width: 100%;
     background: hsla(240, 1%, 17%, 0.75);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid var(--jet);
     border-radius: 12px 12px 0 0;
@@ -1931,4 +1932,208 @@ textarea.form-input::-webkit-resizer {
         max-width: 700px;
     }
 
+}
+
+
+/*-----------------------------------*\
+  #MODERNIZATION — PHASE 3
+  Glass design, new components, a11y
+\*-----------------------------------*/
+
+/* ── Body: dark mesh gradient background ───────────────────────────────────── */
+body {
+    background: #08080f;
+    background-image:
+        radial-gradient(ellipse at 15% 20%, rgba(50, 90, 255, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 80%, rgba(255, 165, 0, 0.05) 0%, transparent 55%),
+        radial-gradient(ellipse at 60% 5%, rgba(130, 40, 210, 0.04) 0%, transparent 40%);
+    background-attachment: fixed;
+}
+
+/* ── Glass cards (sidebar + articles) ─────────────────────────────────────── */
+.sidebar,
+article {
+    background: rgba(16, 16, 26, 0.88);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow: var(--shadow-1), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ── Focus accessibility ───────────────────────────────────────────────────── */
+:focus-visible {
+    outline: 2px solid var(--orange-yellow-crayola);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ── Reduced motion ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ── Contact reach block ───────────────────────────────────────────────────── */
+.contact-info-block {
+    margin-bottom: 24px;
+    padding: 20px 24px;
+    background: var(--border-gradient-onyx);
+    border-radius: 14px;
+    position: relative;
+    z-index: 1;
+}
+
+.contact-info-block::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: var(--bg-gradient-jet);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.contact-reach-text {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    margin-bottom: 14px;
+}
+
+.contact-reach-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-reach-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white-2);
+    font-size: var(--fs-6);
+    transition: color var(--transition-1);
+}
+
+.contact-reach-link ion-icon {
+    color: var(--orange-yellow-crayola);
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.contact-reach-link:hover {
+    color: var(--orange-yellow-crayola);
+}
+
+/* ── Responsive map ────────────────────────────────────────────────────────── */
+.mapbox iframe {
+    width: 100%;
+    height: 100%;
+}
+
+/* ── Project section labels ────────────────────────────────────────────────── */
+.project-section-label {
+    grid-column: 1 / -1;
+    color: var(--orange-yellow-crayola);
+    font-size: var(--fs-7);
+    font-weight: var(--fw-600);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 8px 0 10px;
+    border-bottom: 1px solid var(--jet);
+    margin-bottom: 4px;
+    display: block;
+}
+
+.project-section-label.archive-label {
+    color: var(--light-gray-70);
+    margin-top: 28px;
+}
+
+.project-section-label.featured-label {
+    color: var(--orange-yellow-crayola);
+}
+
+/* ── Gradient placeholder for projects without cover images ────────────────── */
+.project-img-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.project-initial {
+    font-size: 56px;
+    font-weight: var(--fw-600);
+    color: rgba(255, 255, 255, 0.15);
+    -webkit-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* ── Project info wrapper ──────────────────────────────────────────────────── */
+.project-info {
+    padding: 0 6px;
+}
+
+.project-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 4px;
+}
+
+.project-title {
+    flex: 1;
+}
+
+/* ── Featured badge ────────────────────────────────────────────────────────── */
+.project-status-badge {
+    background: linear-gradient(135deg, var(--orange-yellow-crayola), hsl(35, 100%, 58%));
+    color: var(--smoky-black);
+    font-size: 9px;
+    font-weight: var(--fw-600);
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border-radius: 999px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 3px;
+    display: block;
+}
+
+/* ── Project description (featured only) ───────────────────────────────────── */
+.project-desc {
+    color: var(--light-gray);
+    font-size: var(--fs-7);
+    font-weight: var(--fw-300);
+    line-height: 1.55;
+    margin: 6px 0 8px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ── Archive cards: smaller thumbnail ─────────────────────────────────────── */
+.project-item[data-status="archive"] .project-img {
+    height: 150px;
+}
+
+/* ── Service card glass upgrade ────────────────────────────────────────────── */
+.service-item {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
 }

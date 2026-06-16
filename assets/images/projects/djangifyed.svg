@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030a03"/>
+      <stop offset="60%" stop-color="#0a1a0a"/>
+      <stop offset="100%" stop-color="#041208"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Scanlines / terminal texture -->
+  <g opacity="0.04" stroke="#00ff41" stroke-width="0.5">
+    <line x1="0" y1="20" x2="800" y2="20"/><line x1="0" y1="40" x2="800" y2="40"/>
+    <line x1="0" y1="60" x2="800" y2="60"/><line x1="0" y1="80" x2="800" y2="80"/>
+    <line x1="0" y1="100" x2="800" y2="100"/><line x1="0" y1="120" x2="800" y2="120"/>
+    <line x1="0" y1="140" x2="800" y2="140"/><line x1="0" y1="160" x2="800" y2="160"/>
+    <line x1="0" y1="180" x2="800" y2="180"/><line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="220" x2="800" y2="220"/><line x1="0" y1="240" x2="800" y2="240"/>
+    <line x1="0" y1="260" x2="800" y2="260"/><line x1="0" y1="280" x2="800" y2="280"/>
+    <line x1="0" y1="300" x2="800" y2="300"/><line x1="0" y1="320" x2="800" y2="320"/>
+    <line x1="0" y1="340" x2="800" y2="340"/><line x1="0" y1="360" x2="800" y2="360"/>
+    <line x1="0" y1="380" x2="800" y2="380"/><line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="420" x2="800" y2="420"/>
+  </g>
+
+  <!-- Old legacy code block (left) -->
+  <g transform="translate(50, 90)" opacity="0.9">
+    <rect x="0" y="0" width="250" height="210" rx="8" fill="#0d1a0d" stroke="#2a4a2a" stroke-width="1.5"/>
+    <rect x="0" y="0" width="250" height="24" rx="8" fill="#1a2e1a"/>
+    <circle cx="16" cy="12" r="5" fill="#ff5f56" opacity="0.8"/>
+    <circle cx="32" cy="12" r="5" fill="#ffbd2e" opacity="0.8"/>
+    <circle cx="48" cy="12" r="5" fill="#27c93f" opacity="0.8"/>
+    <!-- Code lines (old style) -->
+    <text x="14" y="50" font-family="monospace" font-size="9" fill="#6a9e6a" opacity="0.7">def process_legacy():</text>
+    <text x="14" y="66" font-family="monospace" font-size="9" fill="#8fb8a0" opacity="0.5">  conn = sqlite3.connect(db)</text>
+    <text x="14" y="82" font-family="monospace" font-size="9" fill="#4a7a4a" opacity="0.7">  cursor = conn.cursor()</text>
+    <text x="14" y="98" font-family="monospace" font-size="9" fill="#8fb8a0" opacity="0.5">  cursor.execute("SELECT*")</text>
+    <text x="14" y="114" font-family="monospace" font-size="9" fill="#6a9e6a" opacity="0.6">  rows = cursor.fetchall()</text>
+    <text x="14" y="130" font-family="monospace" font-size="9" fill="#4a7a4a" opacity="0.5">  # TODO: refactor this</text>
+    <text x="14" y="146" font-family="monospace" font-size="9" fill="#8fb8a0" opacity="0.4">  html = "&lt;table&gt;"+data</text>
+    <text x="14" y="162" font-family="monospace" font-size="9" fill="#6a9e6a" opacity="0.5">  return html</text>
+    <text x="14" y="186" font-family="monospace" font-size="9" fill="#2a4a2a" opacity="0.8">// v0.1 — 2014</text>
+  </g>
+
+  <!-- Transform arrow -->
+  <g transform="translate(318, 185)" filter="url(#glow)">
+    <polygon points="0,0 30,20 0,40" fill="#00ff41" opacity="0.9"/>
+    <line x1="-15" y1="20" x2="0" y2="20" stroke="#00ff41" stroke-width="2" opacity="0.7"/>
+  </g>
+
+  <!-- Modern Django block (right) -->
+  <g transform="translate(368, 90)" opacity="0.9">
+    <rect x="0" y="0" width="290" height="210" rx="8" fill="#0d1a0d" stroke="#00ff41" stroke-width="1.5"/>
+    <rect x="0" y="0" width="290" height="24" rx="8" fill="#1a3020"/>
+    <circle cx="16" cy="12" r="5" fill="#ff5f56" opacity="0.8"/>
+    <circle cx="32" cy="12" r="5" fill="#ffbd2e" opacity="0.8"/>
+    <circle cx="48" cy="12" r="5" fill="#27c93f" opacity="0.8"/>
+    <text x="80" y="16" font-family="monospace" font-size="8" fill="#00ff41" opacity="0.6">views.py · modern</text>
+    <!-- Code lines (modern style) -->
+    <text x="14" y="50" font-family="monospace" font-size="9" fill="#00ff41" opacity="0.8">class DataView(APIView):</text>
+    <text x="14" y="66" font-family="monospace" font-size="9" fill="#41ff88" opacity="0.6">  serializer = DataSerializer</text>
+    <text x="14" y="82" font-family="monospace" font-size="9" fill="#00ff41" opacity="0.7">  queryset = Data.objects.all()</text>
+    <text x="14" y="98" font-family="monospace" font-size="9" fill="#41ff88" opacity="0.6">  permission_classes = [IsAuth]</text>
+    <text x="14" y="114" font-family="monospace" font-size="9" fill="#00ff41" opacity="0.8">  def get(self, request):</text>
+    <text x="14" y="130" font-family="monospace" font-size="9" fill="#41ff88" opacity="0.6">    qs = self.get_queryset()</text>
+    <text x="14" y="146" font-family="monospace" font-size="9" fill="#00ff41" opacity="0.7">    return Response(qs)</text>
+    <text x="14" y="186" font-family="monospace" font-size="9" fill="#00ff41" opacity="0.4">// Django REST v3.15</text>
+  </g>
+
+  <!-- Djangifyed logo hint -->
+  <g filter="url(#glow)" opacity="0.6">
+    <text x="400" y="345" font-family="system-ui,sans-serif" font-size="28" font-weight="700" fill="#00ff41" text-anchor="middle" opacity="0.4">D</text>
+  </g>
+
+  <text x="40" y="390" font-family="system-ui,sans-serif" font-size="11" fill="#00ff41" opacity="0.6" letter-spacing="2">DJANGIFYED</text>
+  <text x="40" y="408" font-family="system-ui,sans-serif" font-size="9" fill="#ffffff" opacity="0.35" letter-spacing="1">LEGACY WEB MODERNIZATION TOOL</text>
+  <line x1="40" y1="375" x2="130" y2="375" stroke="#00ff41" stroke-width="1.5" opacity="0.5"/>
+</svg>
