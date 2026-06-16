@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -20,6 +20,17 @@
     <meta name="twitter:image" content="https://shivampal.in/assets/images/my-avatar.png">
     <link rel="canonical" href="https://shivampal.in">
 
+    <script>
+        (function () {
+            try {
+                var savedTheme = localStorage.getItem('portfolio-theme');
+                document.documentElement.dataset.theme = savedTheme === 'light' ? 'light' : 'dark';
+            } catch (error) {
+                document.documentElement.dataset.theme = 'dark';
+            }
+        })();
+    </script>
+
     <!--
     - favicon
   -->
@@ -28,8 +39,8 @@
     <!--
     - custom css link
   -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/modern.css">
+    <link rel="stylesheet" href="./assets/css/style.css?v=phase9">
+    <link rel="stylesheet" href="./assets/css/modern.css?v=phase9">
 
     <!--
     - google font link
@@ -224,6 +235,12 @@
                         <a class="navbar-link" href="#contact" data-nav-link>Contact</a>
                     </li>
                 </ul>
+
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme"
+                    aria-pressed="false">
+                    <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+                    <span class="theme-toggle-text">Dark</span>
+                </button>
 
             </nav>
 
@@ -691,26 +708,39 @@
 
             <article class="projects" data-page="projects" id="projects">
 
-                <!-- SCROLL-DRIVEN FEATURED PROJECT SHOWCASE -->
-                <div class="project-showcase" id="project-showcase">
-                    <div class="showcase-device-wrap" aria-hidden="true">
-                        <div class="showcase-device" id="showcase-device">
-                            <div class="showcase-device-bar">
-                                <span></span><span></span><span></span>
-                                <span class="showcase-url-bar">github.com/dragonscypher/<span
-                                        id="showcase-repo">—</span></span>
-                            </div>
-                            <div class="showcase-screen">
-                                <img id="showcase-img" src="" alt="" loading="lazy">
-                                <div id="showcase-gradient-fallback" class="showcase-gradient-fallback"></div>
+                <section class="project-reel" id="project-reel" aria-labelledby="project-reel-title">
+                    <div class="project-reel-heading">
+                        <p class="project-reel-kicker">Featured case studies</p>
+                        <h2 class="project-reel-title" id="project-reel-title">Selected systems</h2>
+                    </div>
+
+                    <div class="project-reel-layout">
+                        <ol class="project-reel-list" id="project-reel-list" aria-label="Selected systems list">
+                            <!-- Populated by script.js initProjectReel() -->
+                        </ol>
+
+                        <div class="project-reel-frame" aria-live="polite">
+                            <div class="project-reel-cover" id="project-reel-cover">
+                                <div class="project-reel-image-wrap">
+                                    <img class="project-reel-image" id="project-reel-image"
+                                        src="./assets/images/projects/outloud.svg" alt="Outloud project cover"
+                                        loading="lazy" data-fit="contain">
+                                    <div class="project-reel-motif" id="project-reel-motif" aria-hidden="true"></div>
+                                </div>
+                                <div class="project-reel-meta">
+                                    <span class="project-reel-index" id="project-reel-index">01</span>
+                                    <h3 class="project-reel-name" id="project-reel-name">Outloud</h3>
+                                    <p class="project-reel-subtitle" id="project-reel-subtitle">AI Audiobook Generator
+                                    </p>
+                                    <p class="project-reel-summary" id="project-reel-summary"></p>
+                                    <div class="project-reel-tech" id="project-reel-tech"></div>
+                                    <a class="project-reel-link" id="project-reel-link" href="#" target="_blank"
+                                        rel="noopener noreferrer">View on GitHub →</a>
+                                </div>
                             </div>
                         </div>
-                        <p class="showcase-counter" id="showcase-counter" aria-live="polite">01 / 10</p>
                     </div>
-                    <div class="showcase-steps" id="showcase-steps" aria-label="Featured projects">
-                        <!-- Populated by animations.js initShowcase() -->
-                    </div>
-                </div>
+                </section>
 
                 <section class="nprojects">
                     <div class="filter-panel">
@@ -731,11 +761,13 @@
 
                     <!-- GitHub auto-discovered repos (populated by script.js) -->
                     <div class="github-more-section" id="github-more-section" hidden>
-                        <button class="github-more-btn" id="github-more-btn" aria-expanded="false">
+                        <button class="github-more-btn" id="github-more-btn" aria-expanded="false"
+                            aria-controls="github-repos-list" aria-label="Show recent public GitHub repositories">
                             <ion-icon name="logo-github" aria-hidden="true"></ion-icon>
                             <span>More on GitHub</span>
                             <span class="github-more-count" id="github-more-count"></span>
-                            <ion-icon name="chevron-down-outline" class="github-more-chevron" aria-hidden="true"></ion-icon>
+                            <ion-icon name="chevron-down-outline" class="github-more-chevron"
+                                aria-hidden="true"></ion-icon>
                         </button>
                         <ul class="github-repos-list" id="github-repos-list" hidden></ul>
                     </div>
@@ -803,9 +835,9 @@
     <!--
     - custom js link
   -->
-    <script src="./assets/js/projects-data.js" defer></script>
-    <script src="./assets/js/script.js" defer></script>
-    <script src="./assets/js/animations.js" defer></script>
+    <script src="./assets/js/projects-data.js?v=phase9" defer></script>
+    <script src="./assets/js/script.js?v=phase9" defer></script>
+    <script src="./assets/js/animations.js?v=phase9" defer></script>
 
 </body>
 
