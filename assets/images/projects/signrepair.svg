@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0212"/>
+      <stop offset="60%" stop-color="#1a0733"/>
+      <stop offset="100%" stop-color="#12062a"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Camera frame -->
+  <rect x="90" y="60" width="330" height="330" rx="12" fill="#0d0720" stroke="#4c2a85" stroke-width="2"/>
+  <g stroke="#a78bfa" stroke-width="3" fill="none" opacity="0.6">
+    <path d="M90,100 V72 a12,12 0 0 1 12,-12 H130"/><path d="M420,100 V72 a12,12 0 0 0 -12,-12 H380"/>
+    <path d="M90,350 V378 a12,12 0 0 0 12,12 H130"/><path d="M420,350 V378 a12,12 0 0 1 -12,12 H380"/>
+  </g>
+
+  <!-- Hand landmark skeleton (abstract) -->
+  <g stroke="#a78bfa" stroke-width="2.5" fill="none" filter="url(#glow)">
+    <polyline points="255,340 225,290 205,245 195,205"/>
+    <polyline points="255,340 240,280 238,225 240,170"/>
+    <polyline points="255,340 262,278 268,220 272,160"/>
+    <polyline points="255,340 285,285 300,235 310,190"/>
+    <polyline points="255,340 305,310 335,285 355,265"/>
+  </g>
+  <g fill="#f0abfc" filter="url(#glow)">
+    <circle cx="255" cy="340" r="7"/>
+    <circle cx="225" cy="290" r="5"/><circle cx="205" cy="245" r="5"/><circle cx="195" cy="205" r="5"/>
+    <circle cx="240" cy="280" r="5"/><circle cx="238" cy="225" r="5"/><circle cx="240" cy="170" r="5"/>
+    <circle cx="262" cy="278" r="5"/><circle cx="268" cy="220" r="5"/><circle cx="272" cy="160" r="5"/>
+    <circle cx="285" cy="285" r="5"/><circle cx="300" cy="235" r="5"/><circle cx="310" cy="190" r="5"/>
+    <circle cx="305" cy="310" r="5"/><circle cx="335" cy="285" r="5"/><circle cx="355" cy="265" r="5"/>
+  </g>
+
+  <!-- Candidate panel with uncertainty bars -->
+  <g transform="translate(470,80)">
+    <rect width="240" height="150" rx="10" fill="#0d0720" stroke="#4c2a85" stroke-width="1.5"/>
+    <rect x="18" y="22" width="150" height="12" rx="4" fill="#a78bfa"/>
+    <rect x="18" y="52" width="104" height="12" rx="4" fill="#7c5bd0" opacity="0.8"/>
+    <rect x="18" y="82" width="62" height="12" rx="4" fill="#4c2a85"/>
+    <rect x="18" y="112" width="30" height="12" rx="4" fill="#3a2068"/>
+  </g>
+
+  <!-- Repair prompt -->
+  <g transform="translate(470,250)">
+    <rect width="240" height="92" rx="10" fill="#1a0b38" stroke="#f0abfc" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <circle cx="34" cy="46" r="16" fill="none" stroke="#f0abfc" stroke-width="2.5"/>
+    <text x="34" y="53" text-anchor="middle" font-family="monospace" font-size="20" fill="#f0abfc">?</text>
+    <rect x="66" y="30" width="150" height="8" rx="3" fill="#e9d5ff" opacity="0.85"/>
+    <rect x="66" y="50" width="110" height="8" rx="3" fill="#e9d5ff" opacity="0.5"/>
+  </g>
+
+  <!-- On-device lock -->
+  <g transform="translate(690,370)" filter="url(#glow)">
+    <rect x="-14" y="-4" width="28" height="22" rx="3" fill="#a78bfa"/>
+    <path d="M-8,-4 V-12 a8,8 0 0 1 16,0 V-4" fill="none" stroke="#a78bfa" stroke-width="3"/>
+  </g>
+</svg>

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050b14"/>
+      <stop offset="60%" stop-color="#0a1c2e"/>
+      <stop offset="100%" stop-color="#06303a"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+
+  <!-- Video frame -->
+  <rect x="120" y="50" width="560" height="250" rx="10" fill="#08121f" stroke="#1d4a63" stroke-width="2"/>
+  <polygon points="372,140 372,210 432,175" fill="#22d3ee" opacity="0.35"/>
+
+  <!-- Subtitle caption bars -->
+  <g>
+    <rect x="230" y="236" width="340" height="16" rx="4" fill="#000" opacity="0.75"/>
+    <rect x="244" y="241" width="200" height="6" rx="2" fill="#e6f7fb"/>
+    <rect x="290" y="262" width="220" height="16" rx="4" fill="#000" opacity="0.75"/>
+    <rect x="304" y="267" width="140" height="6" rx="2" fill="#e6f7fb"/>
+  </g>
+
+  <!-- Waveform timeline -->
+  <g transform="translate(120,340)">
+    <rect x="0" y="-6" width="560" height="64" rx="8" fill="#08121f" stroke="#1d4a63" stroke-width="1"/>
+    <!-- processed (before playhead) -->
+    <g fill="#1f9fb8" opacity="0.9">
+      <rect x="14" y="14" width="4" height="24"/><rect x="24" y="6" width="4" height="40"/>
+      <rect x="34" y="18" width="4" height="16"/><rect x="44" y="10" width="4" height="32"/>
+      <rect x="54" y="20" width="4" height="12"/><rect x="64" y="4" width="4" height="44"/>
+      <rect x="74" y="12" width="4" height="28"/><rect x="84" y="18" width="4" height="16"/>
+      <rect x="94" y="8" width="4" height="36"/><rect x="104" y="16" width="4" height="20"/>
+      <rect x="114" y="10" width="4" height="32"/><rect x="124" y="20" width="4" height="12"/>
+      <rect x="134" y="6" width="4" height="40"/><rect x="144" y="14" width="4" height="24"/>
+      <rect x="154" y="18" width="4" height="16"/><rect x="164" y="8" width="4" height="36"/>
+    </g>
+    <!-- ahead-of-playhead processing window -->
+    <rect x="180" y="-2" width="210" height="56" rx="6" fill="#22d3ee" opacity="0.12" stroke="#22d3ee" stroke-width="1" stroke-dasharray="5 4"/>
+    <g fill="#22d3ee" filter="url(#glow)">
+      <rect x="194" y="12" width="4" height="28"/><rect x="204" y="6" width="4" height="40"/>
+      <rect x="214" y="16" width="4" height="20"/><rect x="224" y="8" width="4" height="36"/>
+      <rect x="234" y="18" width="4" height="16"/><rect x="244" y="4" width="4" height="44"/>
+      <rect x="254" y="14" width="4" height="24"/><rect x="264" y="10" width="4" height="32"/>
+      <rect x="274" y="20" width="4" height="12"/><rect x="284" y="6" width="4" height="40"/>
+      <rect x="294" y="14" width="4" height="24"/><rect x="304" y="18" width="4" height="16"/>
+      <rect x="314" y="8" width="4" height="36"/><rect x="324" y="16" width="4" height="20"/>
+      <rect x="334" y="10" width="4" height="32"/><rect x="344" y="20" width="4" height="12"/>
+      <rect x="354" y="6" width="4" height="40"/><rect x="364" y="16" width="4" height="20"/>
+    </g>
+    <!-- unprocessed -->
+    <g fill="#2a4152" opacity="0.8">
+      <rect x="404" y="14" width="4" height="24"/><rect x="414" y="8" width="4" height="36"/>
+      <rect x="424" y="18" width="4" height="16"/><rect x="434" y="6" width="4" height="40"/>
+      <rect x="444" y="16" width="4" height="20"/><rect x="454" y="10" width="4" height="32"/>
+      <rect x="464" y="20" width="4" height="12"/><rect x="474" y="4" width="4" height="44"/>
+      <rect x="484" y="14" width="4" height="24"/><rect x="494" y="18" width="4" height="16"/>
+      <rect x="504" y="8" width="4" height="36"/><rect x="514" y="16" width="4" height="20"/>
+      <rect x="524" y="12" width="4" height="28"/><rect x="534" y="20" width="4" height="12"/>
+    </g>
+    <!-- playhead -->
+    <line x1="180" y1="-10" x2="180" y2="62" stroke="#ffffff" stroke-width="2" filter="url(#glow)"/>
+    <polygon points="173,-12 187,-12 180,-2" fill="#ffffff"/>
+  </g>
+
+  <!-- Privacy shield -->
+  <g transform="translate(700,86)" filter="url(#glow)">
+    <path d="M0,-26 L22,-18 L22,6 C22,20 10,30 0,34 C-10,30 -22,20 -22,6 L-22,-18 Z" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+    <rect x="-8" y="-4" width="16" height="13" rx="2" fill="#22d3ee"/>
+    <path d="M-5,-4 L-5,-10 A5,5 0 0 1 5,-10 L5,-4" fill="none" stroke="#22d3ee" stroke-width="2"/>
+  </g>
+</svg>
