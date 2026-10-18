@@ -17,6 +17,17 @@ const PROJECT_GRADIENTS = [
 const PROJECTS = [
     // ── FEATURED ──────────────────────────────────────────────────────────────
     {
+        id: 'subtitler',
+        title: 'Subtitler',
+        subtitle: 'Local-first Video Transcription',
+        status: 'featured',
+        categories: ['ai', 'tools'],
+        description: 'Generates synchronized subtitles and full transcripts from authorized prerecorded media using local ASR, ahead-of-playhead scheduling, and privacy-conscious browser-to-native processing.',
+        tech: ['Rust', 'TypeScript', 'whisper.cpp', 'FFmpeg', 'Chrome MV3'],
+        repoName: 'Subtitler',
+        gradientId: 0,
+    },
+    {
         id: 'outloud',
         title: 'Outloud',
         subtitle: 'AI Audiobook Generator',
@@ -74,8 +85,8 @@ const PROJECTS = [
         subtitle: 'AI Navigation Assistant for Visually Impaired Users',
         status: 'featured',
         categories: ['ai', 'healthcare'],
-        description: 'Assistive navigation combining SLAM, computer vision, and offline TTS to describe surroundings for visually impaired users.',
-        tech: ['Python', 'OpenCV', 'PyTorch', 'SLAM', 'Mistral'],
+        description: 'Cross-platform scene-assistance prototype with on-device TFLite detection, focused object cues, camera/webcam flows, speech interfaces, and platform-aware AR/VR fallbacks.',
+        tech: ['Flutter', 'TFLite', 'AR/VR', 'TTS/STT', 'WebRTC'],
         repoName: 'Vizio',
         image: './assets/images/projects/vizio.svg',
         imageFit: 'contain',
@@ -93,6 +104,17 @@ const PROJECTS = [
         image: './assets/images/projects/autofile.svg',
         imageFit: 'contain',
         gradientId: 5,
+    },
+    {
+        id: 'signrepair',
+        title: 'SignRepair',
+        subtitle: 'Privacy-first Sign Evidence & Repair',
+        status: 'featured',
+        categories: ['ai', 'tools'],
+        description: 'On-device, constrained sign-recognition prototype that shows uncertainty, offers repair flows, and stores landmark-only personalization instead of claiming open-ended translation.',
+        tech: ['Next.js', 'TypeScript', 'MediaPipe', 'IndexedDB', 'Playwright'],
+        repoName: 'Handysign',
+        gradientId: 6,
     },
     {
         id: 'groupem',
