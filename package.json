@@ -1,0 +1,8 @@
+{
+  "name": "shivampal-in",
+  "private": true,
+  "description": "Static portfolio site for shivampal.in",
+  "engines": {
+    "node": "24.x"
+  }
+}
