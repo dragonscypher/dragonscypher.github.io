@@ -280,7 +280,28 @@ function updateProjectReel(projects, index) {
     if (indexEl) indexEl.textContent = String(index + 1).padStart(2, "0") + " / " + String(projects.length).padStart(2, "0");
     if (nameEl) nameEl.textContent = project.title;
     if (subtitleEl) subtitleEl.textContent = project.subtitle || "";
-    if (summaryEl) summaryEl.textContent = project.description || "";
+    if (summaryEl) {
+        summaryEl.textContent = project.description || "";
+        let projEl = document.getElementById("project-reel-projected");
+        if (!projEl) {
+            projEl = document.createElement("div");
+            projEl.id = "project-reel-projected";
+            projEl.className = "project-reel-projected";
+            summaryEl.insertAdjacentElement("afterend", projEl);
+        }
+        projEl.innerHTML = "";
+        if (project.projected && project.projected.length) {
+            const heading = document.createElement("strong");
+            heading.textContent = "Projected (not yet measured)";
+            const ul = document.createElement("ul");
+            project.projected.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = item;
+                ul.appendChild(li);
+            });
+            projEl.append(heading, ul);
+        }
+    }
 
     if (image && project.image) {
         image.src = project.image;

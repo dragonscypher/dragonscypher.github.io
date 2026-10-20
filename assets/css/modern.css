@@ -1588,3 +1588,6 @@ body {
     cursor: pointer;
     appearance: auto;
 }
+.project-reel-projected { margin: 0.75rem 0 0; font-size: 0.85rem; opacity: 0.9; }
+.project-reel-projected strong { display: block; margin-bottom: 0.25rem; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.72rem; }
+.project-reel-projected ul { margin: 0; padding-left: 1.1rem; }
